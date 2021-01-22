@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h3>这是首页</h3>
+<p th:if="${session.loginUser != null}">
+    欢迎 <span style="color: pink" th:text="${session.loginUser.username}"></span>登录
+</p>
+
+<a th:if="${session.loginUser == null}" href="http://localhost:9000/view/login?target=http://localhost:9001/view/index">登录</a>
+<a th:unless="${session.loginUser == null}" href="http://localhost:9000/login/loginOut?target=http://localhost:9001/view/index">退出</a>
+</body>
+</html>
